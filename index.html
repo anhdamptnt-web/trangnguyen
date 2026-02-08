@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyễn Ngọc Yến Trang</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+color:white;
+overflow-x:hidden;
+background:black;
+}
+
+/* VIDEO NỀN */
+.video-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+filter:brightness(0.65);
+}
+
+/* OVERLAY PINK SOFT */
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+rgba(255,220,235,0.35),
+rgba(120,70,90,0.35)
+);
+backdrop-filter:blur(10px);
+z-index:-1;
+}
+
+/* CONTAINER */
+.container{
+min-height:100vh;
+padding:60px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:40px;
+}
+
+/* PROFILE FRAME */
+.profile-frame{
+width:100%;
+max-width:900px;
+
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(18px);
+
+border-radius:26px;
+padding:30px;
+
+display:flex;
+align-items:center;
+gap:25px;
+
+border:1px solid rgba(255,255,255,0.9);
+box-shadow:0 10px 40px rgba(0,0,0,0.35);
+color:#4b2e2e;
+}
+
+/* AVATAR */
+.avatar-frame{
+width:140px;
+height:140px;
+border-radius:50%;
+padding:4px;
+background:linear-gradient(135deg,#ffd6e7,#d6b89c);
+}
+
+.avatar-frame img{
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+}
+
+/* TEXT */
+.profile-info h1{
+font-size:34px;
+margin-bottom:6px;
+}
+
+.profile-info p{
+opacity:0.9;
+margin-top:5px;
+}
+
+/* GRID */
+.grid{
+width:100%;
+max-width:900px;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(18px);
+
+border-radius:20px;
+padding:24px;
+
+border:1px solid rgba(255,255,255,0.9);
+box-shadow:0 8px 30px rgba(0,0,0,0.25);
+
+color:#4b2e2e;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:12px;
+}
+
+/* IMAGE */
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:14px;
+}
+
+/* MUSIC */
+.music-wide{
+grid-column:1 / span 2;
+}
+
+iframe{
+width:100%;
+height:160px;
+border:none;
+border-radius:14px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+.profile-frame{
+flex-direction:column;
+text-align:center;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.music-wide{
+grid-column:auto;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO NỀN -->
+<video class="video-bg" autoplay loop playsinline muted id="bgVideo">
+<source src="bg-trang.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+<!-- PROFILE -->
+<div class="profile-frame">
+
+<div class="avatar-frame">
+<img src="images/trang.jpg">
+</div>
+
+<div class="profile-info">
+<h1>Nguyễn Ngọc Yến Trang</h1>
+<p>Sinh: 15/12/2008</p>
+<p>Style: Hồng • Trắng • Nâu</p>
+</div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="grid">
+
+<div class="card">
+<h3>Sở thích</h3>
+<p>
+Làm bánh • Nấu ăn • Nhảy múa • Nghe nhạc • Du lịch
+</p>
+</div>
+
+<div class="card">
+<h3>Phong cách</h3>
+<p>
+Nhẹ nhàng, nữ tính, tinh tế, thích vibe ấm áp và dễ chịu.
+</p>
+</div>
+
+<div class="card music-wide">
+<h3>Nhạc yêu thích</h3>
+
+<iframe src="https://open.spotify.com/embed/track/SPOTIFY_ID"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+document.addEventListener("click",()=>{
+const v=document.getElementById("bgVideo");
+v.muted=false;
+v.play().catch(()=>{});
+},{once:true});
+</script>
+
+</body>
+</html>
